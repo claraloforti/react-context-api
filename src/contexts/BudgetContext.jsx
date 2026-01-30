@@ -17,7 +17,6 @@ function BudgetProvider({ children }) {
 
     // Funzione di gestione del budget
     // che inverte il valore attuale di budgetMode (tra true e false)
-
     const toggleBudgetMode = () => setBudgetMode(prev => !prev);
 
 
