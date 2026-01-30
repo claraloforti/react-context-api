@@ -1,7 +1,11 @@
 import ProductsCard from "./ProductsCard";
+import { useBudget } from "../context/BudgetContext";
 
 
-function ProductsList({ products }) { // Array dei prodotti passati dal padre (Products)
+function ProductsList() {
+
+    // Usiamo contesto e prendiamo il valore che ci serve
+    const { products } = useFavortite();
 
 
     return (
