@@ -14,7 +14,7 @@ function Products() {
             {/* Bottone per la modalità budget */}
             <div className="budget-btn-container">
                 <button
-                    // Aggiungi classe active se budgetMode è true
+                    // Aggiunge classe active se budgetMode è true
                     className={`budget-btn ${budgetMode ? 'active' : ''}`}
                     onClick={toggleBudgetMode}>
                     {budgetMode ? "Modalità Budget attiva" : "Modalità Budget disattivata"}

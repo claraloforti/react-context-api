@@ -10,7 +10,6 @@ function ProductsCard({ product: { id, title, category, // Destrutturo le propri
             <img className="product-image" src={image} alt={title} />
             <p className="product-title">{title}</p>
             <p className="product-price">${price.toFixed(2)}</p>
-            <p className="product-description">{description}</p>
             <p className="product-category">{category}</p>
             <Link to={`/prodotti/${id}`}
                 className="btn-details">
