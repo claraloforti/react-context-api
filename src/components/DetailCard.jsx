@@ -7,7 +7,7 @@ function DetailCard({ product }) {
 
 
     return (
-        <div className="product-detail-section">
+        <div className="detail-card">
             <div className="detail-img">
                 <img src={image} alt={title} />
             </div>
