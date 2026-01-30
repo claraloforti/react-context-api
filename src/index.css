@@ -53,6 +53,15 @@ footer {
   color: rgb(38, 145, 198);
 }
 
+.budget-btn {
+  padding: 4px;
+  background-color: rgb(228, 56, 56);
+}
+
+.budget-btn.active {
+  background-color: rgb(21, 163, 21);
+}
+
 
 /* LISTA CARDS PRODOTTI */
 

@@ -1,10 +1,10 @@
 import ProductsCard from "./ProductsCard";
-import { useBudgetMode } from "../context/BudgetContext";
+import { useBudgetMode } from "../contexts/BudgetContext";
 
 
 function ProductsList() {
 
-    // Recupera dal contesto lo stato dei prodotti per filtrarli in base al budget
+    // Recupero dal contesto lo stato dei prodotti per filtrarli in base al budget
     const { products, budgetMode } = useBudgetMode();
 
     // Filtro prodotti se la modalità budget è attiva

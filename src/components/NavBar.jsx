@@ -1,5 +1,6 @@
 // Importo NavLink per creare i link di navigazione interni
 import { NavLink } from "react-router-dom";
+import { useBudgetMode } from "../contexts/BudgetContext";
 
 function NavBar() {
 
@@ -9,6 +10,9 @@ function NavBar() {
         { path: '/chisiamo', label: 'CHI SIAMO' },
         { path: '/prodotti', label: 'I NOSTRI PRODOTTI' }
     ]
+
+    // Recupero dal contesto lo stato della modalità budget e la funzione per gestirla
+    const { budgetMode, toggleBudgetMode } = useBudgetMode();
 
     return (
         <nav className="navbar">
@@ -24,6 +28,13 @@ function NavBar() {
                             </NavLink>
                         </li>
                     ))}
+                    {/* Bottone per la modalità budget */}
+                    <button
+                        // Aggiungi classe active se budgetMode è true
+                        className={`budget-btn ${budgetMode ? 'active' : ''}`}
+                        onClick={toggleBudgetMode}>
+                        {budgetMode ? "Modalità Budget attiva" : "Modalità Budget disattivata"}
+                    </button>
                 </ul>
             </div>
         </nav>
