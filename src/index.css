@@ -53,17 +53,24 @@ footer {
   color: rgb(38, 145, 198);
 }
 
+
+/* LISTA CARDS PRODOTTI */
+
+.budget-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 .budget-btn {
   padding: 4px;
   background-color: rgb(228, 56, 56);
+  cursor: pointer;
 }
 
 .budget-btn.active {
   background-color: rgb(21, 163, 21);
 }
-
-
-/* LISTA CARDS PRODOTTI */
 
 .products-list {
   display: flex;
