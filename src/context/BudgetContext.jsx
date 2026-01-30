@@ -36,7 +36,7 @@ function BudgetProvider({ children }) {
     // useEffect per eseguire la chiamata solo al montaggio del componente
     useEffect(fetchProducts, []);
 
-    return (
+    return ( // Fornisce ai figli l'accesso allo stato e alle funzioni del budget
         <BudgetContext.Provider
             value={{
                 products,
