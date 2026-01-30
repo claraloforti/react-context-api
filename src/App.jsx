@@ -8,7 +8,7 @@ import ProductDetail from "./components/ProductDetail";
 
 function App() {
 
-  return ( // racchiudo tutto in BudgetProvider per rendere il contesto disponibile a tutte le route
+  return ( // Racchiudo le routes in BudgetProvider per rendere il contesto disponibile globalmente
     <BudgetProvider>
       <BrowserRouter>
         <Routes>

@@ -1,16 +1,22 @@
 import ProductsCard from "./ProductsCard";
-import { useBudget } from "../context/BudgetContext";
+import { useBudgetMode } from "../context/BudgetContext";
 
 
 function ProductsList() {
 
-    // Usiamo contesto e prendiamo il valore che ci serve
-    const { products } = useFavortite();
+    // Recupera dal contesto lo stato dei prodotti per filtrarli in base al budget
+    const { products, budgetMode } = useBudgetMode();
+
+    // Filtro prodotti se la modalità budget è attiva
+    const budgetProducts = budgetMode ? // budgetMode è true? (modalità budget è attiva?)
+        products.filter(product => // allora mostra solo prodotti con prezzo <= 30
+            product.price <= 30)
+        : products; // altrimenti mostra tutti i prodotti
 
 
     return (
         <div className="products-list container">
-            {products.map(product => (
+            {budgetProducts.map(product => (
                 <ProductsCard
                     key={product.id}
                     // Passo al componente figlio (ProductsCard) i dati del singolo prodotto tramite props

@@ -6,25 +6,20 @@ const BudgetContext = createContext();
 const endpoint = "https://fakestoreapi.com//products/";
 
 
+
 function BudgetProvider({ children }) {
 
     // Variabile di stato per lista dei prodotti
     const [products, setProducts] = useState([]);
-    // Variabile di stato per gli ID dei preferiti
-    const [budget, setBudget] = useState([]);
+    // Variabile di stato per il filtro del budget
+    const [budgetMode, setBudgetMode] = useState(false);
 
-    // Funzioni di gestione del budget
-    const addBudget = (productId) => {
-        setBudget(prev => [...prev, productId]);
-    };
 
-    const removeBudget = (productId) => {
-        setBudget(prev => prev.filter(id => id !== productId));
-    };
+    // Funzione di gestione del budget
+    // che inverte il valore attuale di budgetMode (tra true e false)
 
-    const isBudget = (productId) => {
-        return budget.includes(productId);
-    };
+    const toggleBudgetMode = () => setBudgetMode(prev => !prev);
+
 
     // Funzione che esegue la chiamata Ajax verso endpoint API
     function fetchProducts() {
@@ -36,14 +31,14 @@ function BudgetProvider({ children }) {
     // useEffect per eseguire la chiamata solo al montaggio del componente
     useEffect(fetchProducts, []);
 
+
+
     return ( // Fornisce ai figli l'accesso allo stato e alle funzioni del budget
         <BudgetContext.Provider
             value={{
                 products,
-                budget,
-                addBudget,
-                removeBudget,
-                isBudget
+                budgetMode,
+                toggleBudgetMode
             }}
         >
             {children}
@@ -52,11 +47,10 @@ function BudgetProvider({ children }) {
 }
 
 
-// Definiamo un hook per consumare il contesto
-function useBudget() {
-    const context = useContext(FavortiteContext);
-    return context;
+// Hook per utilizzare il contesto del budget
+function useBudgetMode() {
+    return useContext(BudgetContext);
 }
 
-// Esportiamo il nostro provider ed il nostro hook
-export { BudgetProvider, useBudget }
+// Export del provider e dell’hook
+export { BudgetProvider, useBudgetMode }
